@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: tyler-api
   spec:
-    replicas: 1
     selector:
       matchLabels:
         app: tyler-api
@@ -15,28 +14,28 @@ metadata:
     containers:
       - name: tyler-api
         image: us-docker.pkg.dev/cit-262-team1-ez/tyler-api/api-tests
-        ports:
-          - containerPort: 3000
         resources:
           limits:
-            cpu: ".5"
             memory: "500Mi"
+            cpu: ".5"
           requests:
-            cpu: ".25"
             memory: "250Mi"
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 3000
-              scheme: HTTP
-            failureThreshold: 1
-            periodSeconds: 10
-            timeoutSeconds: 10
-          startupProbe:
-            httpGet:
-              path: /
-              port: 3000
-              scheme: HTTP
-            failureThreshold: 30
-            periodSeconds: 10
-            timeoutSeconds: 10
+            cpu: ".25"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+            scheme: HTTP
+          failureThreshold: 1
+          periodSeconds: 10
+          timeoutSeconds: 10
+        startupProbe:
+          httpGet:
+            path: /
+            port: 3000
+            scheme: HTTP
+          failureThreshold: 30
+          periodSeconds: 10
+          timeoutSeconds: 10
+        ports:
+        - containerPort: 3000
