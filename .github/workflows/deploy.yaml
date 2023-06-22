@@ -18,6 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     # Prototype changes go here:
     environment: development
+    permissions:
+      contents: 'read'
+      id-token: 'write'
 
     steps:
     - name: Checkout
