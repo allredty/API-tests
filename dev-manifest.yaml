@@ -2,14 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tyler-api
-  spec:
+spec:
     selector:
       matchLabels:
         app: tyler-api
-  template:
-    metadata:
-      labels:
-        app: tyler-api
+    template:
+      metadata:
+        labels:
+          app: tyler-api
   spec:
     containers:
       - name: tyler-api
