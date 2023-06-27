@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: tyler-api
-        image: us-docker.pkg.dev/cit-262-team1-ez/tyler-api/api-tests
+        image: us-docker.pkg.dev/cit-262-team1-ez/tyler-api/api-tests:1.0
         resources:
           limits:
             memory: "500Mi"
